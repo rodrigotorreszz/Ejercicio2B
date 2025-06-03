@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+
+.booktracker-container {
+    width: 100vw;              /* ancho de toda la ventana */
+    height: 100vh;             /* altura de toda la ventana */
+    margin: 0;                 /* sin margen */
+    padding: 2rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e7f0f7; /* azul pastel muy suave */
+    
+    /* Centrar contenido vertical y horizontalmente con flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* puedes usar center para centrar verticalmente */
+    
+    box-sizing: border-box;    /* para que padding no sume fuera del viewport */
+    overflow-y: auto;          /* scroll vertical si el contenido es mayor que la pantalla */
+  }
+  
+  /* Asegurar que la tabla y demás elementos se adapten */
+  .booktracker-table-wrapper {
+    width: 100%;
+    max-width: 960px; /* para no crecer demasiado en pantallas muy anchas */
+  }
+  
+
+.booktracker-button {
+  background-color: #f6c7a1; /* melocotón pastel */
+  color: #fefcfb; /* blanco cálido */
+  border: none;
+  padding: 14px 36px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 32px;
+  cursor: pointer;
+  box-shadow: 0 5px 16px rgba(246, 199, 161, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booktracker-button:hover,
+.booktracker-button:focus {
+  background-color: #e6b378; /* melocotón oscuro */
+  box-shadow: 0 8px 22px rgba(230, 179, 120, 0.85);
+  outline: none;
+}
+
+.booktracker-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #6b4f3a; /* marrón cálido */
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    padding-bottom: 8px; /* espacio para la línea */
+    border-bottom: 6px solid #f6c7a1; /* línea melocotón */
+    border-radius: 3px 3px 0 0;
+  }
+
+
+.booktracker-subtitle {
+  color: #7a5c4c; /* marrón medio cálido */
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.booktracker-table-wrapper {
+  overflow-x: auto;
+  box-shadow: 0 6px 20px rgba(107, 64, 38, 0.1);
+  border-radius: 12px;
+  background: #fffefc; /* blanco cálido */
+}
+
+.booktracker-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 700px;
+  font-size: 1rem;
+  color: #6b4f3a;
+}
+
+.booktracker-table thead {
+  background-color: #f4e9e3; /* rosa muy suave */
+  color: #55371f; /* marrón oscuro */
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booktracker-table th,
+.booktracker-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0e6df;
+  text-align: left;
+}
+
+.booktracker-table tbody tr:hover {
+  background-color: #f9f2ed;
+  transition: background-color 0.3s ease;
+}
+
+.booktracker-actions button {
+  background-color: #f6c7a1;
+  border: none;
+  border-radius: 20px;
+  color: #fffefc;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booktracker-actions button:hover {
+  background-color: #e6b378;
+  box-shadow: 0 5px 15px rgba(230, 179, 120, 0.7);
+  outline: none;
+}
+
+.booktracker-actions button:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 8px rgba(230, 179, 120, 0.85);
+}
