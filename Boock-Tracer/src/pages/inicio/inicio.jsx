@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from "react";
-import Titulos from "../../components/Titulos";  // <-- Esto falta y es necesario
+// pages/BookTracker.jsx
+import React from "react";
+import Titulos from "../../components/Titulos";
 import Button from "../../components/Boton";
 import { useNavigate } from "react-router-dom";
 import "./inicio.css";
+import { useBooks } from "../../hooks/useBooks"; // Importa el hook
 
 const BookTracker = () => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // 🧭 Inicializa el navegador
+  const navigate = useNavigate();
+  const { books, loading, deleteBook } = useBooks();
 
-  useEffect(() => {
-    fetch("https://retoolapi.dev/ns36JG/libros")
-      .then((res) => res.json())
-      .then((data) => {
-        setBooks(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching books:", err);
-        setLoading(false);
-      });
-  }, []);
+  const handleDelete = async (id) => {
+    if (window.confirm("¿Estás seguro de eliminar este libro?")) {
+      try {
+        await deleteBook(id);
+      } catch (error) {
+        console.error("Error al eliminar el libro:", error);
+      }
+    }
+  };
 
   if (loading) return <p>Cargando libros...</p>;
 
   return (
     <div className="booktracker-container">
-      {/* Botón "Agregar libro" que redirige al formulario */}
       <Button
         text="Agregar libro"
-        onClick={() => navigate("/books")} // ✅ Redirige al formulario
+        onClick={() => navigate("/books")}
         className="booktracker-button"
       />
 
@@ -54,14 +51,8 @@ const BookTracker = () => {
                 <td>{genero}</td>
                 <td>{estado}</td>
                 <td className="booktracker-actions">
-                  <Button
-                    text="Editar"
-                    onClick={() => alert(`Editar libro ID: ${id}`)}
-                  />
-                  <Button
-                    text="Eliminar"
-                    onClick={() => alert(`Eliminar libro ID: ${id}`)}
-                  />
+                  <Button text="Editar" onClick={() => navigate(`/books/${id}`)} />
+                  <Button text="Eliminar" onClick={() => handleDelete(id)} />
                 </td>
               </tr>
             ))}
@@ -73,4 +64,3 @@ const BookTracker = () => {
 };
 
 export default BookTracker;
-
