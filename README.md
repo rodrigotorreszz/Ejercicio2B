@@ -20,6 +20,7 @@ Para ejecutar Book Tracker sigue estos pasos:
 
 Clona el repositorio
 Instala las dependencias: npm install
+
 Ejecuta el entorno de desarrollo: npm run dev
 
 Video: https://drive.google.com/file/d/1yBDnLYyVPmiWy0eaZnGvBsU9xkasKT_f/view?usp=sharing
